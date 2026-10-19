@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+:root {
+  /* ======================================================== */
+  /* DIGVIJAY MIDNIGHT SLATE DESIGN SYSTEM (#14151f)          */
+  /* ======================================================== */
+  --bg: #14151f;
+  --surface: #1a1c2c;
+  --surface-1: #262b44;
+  --surface-2: #333c57;
+  --surface-hover: #2f3653;
+  --surface-pressed: #1f2338;
+
+  --border: #4a5578;
+  --border-soft: #333c57;
+  --border-strong: #8492b5;
+
+  --text: #f4f4f4;
+  --text-muted: #a3b1c6;
+  --text-faint: #8a98b3;
+
+  --accent: #41a6f6;
+  --accent-hover: #66b8f8;
+  --accent-pressed: #2f8fe0;
+  --accent-warm: #ffcd75;
+  --accent-coral: #ef7d57;
+  --accent-leaf: #38b764;
+  --accent-mint: #a7f070;
+
+  --panel-bg: rgba(26, 28, 44, 0.85);
+  --panel-elevated-bg: rgba(38, 43, 68, 0.94);
+  --border-glass: #333c57;
+
+  --accent-glow: rgba(65, 166, 246, 0.35);
+  --warm-glow: rgba(255, 205, 117, 0.35);
+
+  --neon-cyan: #22e6ff;
+  --hero-bubble-bg: #ffffff;
+  --hero-bubble-text: #14151f;
+  --hero-scrim: #0f1024d9;
+
+  --font-display: "Silkscreen", "Courier New", monospace;
+  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display-hero: "Bebas Neue", "Arial Narrow", sans-serif;
+
+  --radius-control: 12px;
+  --radius-panel: 16px;
+  --radius-chip: 8px;
+}
+
+@theme {
+  --color-obsidian-950: #14151f;
+  --color-obsidian-900: #1a1c2c;
+  --color-obsidian-850: #202336;
+  --color-obsidian-800: #262b44;
+  --color-obsidian-750: #2f3653;
+  --color-obsidian-700: #333c57;
+
+  --color-cyan-400: #41a6f6;
+  --color-cyan-300: #66b8f8;
+  --color-cyan-200: #93cdfb;
+  --color-cyan-500: #2f8fe0;
+
+  --color-violet-400: #ffcd75;
+  --color-violet-300: #ffe1a6;
+  --color-violet-500: #f59e0b;
+
+  --font-sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Silkscreen', monospace;
+  --font-display-hero: 'Bebas Neue', sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-display-hero {
+  font-family: var(--font-display-hero);
+}
+
+.bg-hero-scrim {
+  background-color: var(--hero-scrim);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.bg-hero-bubble-bg {
+  background-color: var(--hero-bubble-bg);
+}
+
+.text-hero-bubble-text {
+  color: var(--hero-bubble-text);
+}
+
+.rounded-control {
+  border-radius: var(--radius-control);
+}
+
+.rounded-panel {
+  border-radius: var(--radius-panel);
+}
+
+.rounded-chip {
+  border-radius: var(--radius-chip);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 4px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Glassmorphism Classes matching Digvijay Slate Panels */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-soft);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--border);
+}
+
+.glass-panel-elevated {
+  background: var(--panel-elevated-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-soft);
+}
+
+.glass-pill {
+  background: var(--surface-1);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-soft);
+}
+
+/* Glow Shadows */
+.shadow-glow-cyan {
+  box-shadow: 0 0 25px -5px var(--accent-glow);
+}
+
+.shadow-glow-violet {
+  box-shadow: 0 0 25px -5px var(--warm-glow);
+}
+
+.shadow-card-subtle {
+  box-shadow: 0 8px 24px -4px rgba(10, 11, 20, 0.6);
+}
+
+/* Interactive Card Dimming Focus Effect */
+.cards-container:hover .dim-target:not(:hover) {
+  opacity: 0.55;
+  filter: grayscale(15%);
+  transform: scale(0.995);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dim-target {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dedicated ATS Resume Print Stylesheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm;
+  }
+  
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  /* Hide non-print UI */
+  header, nav, button, .pointer-events-none, .fixed {
+    display: none !important;
+  }
+}
+
+/* Mild Sugar Infinite Kinetic Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+/* Mild Sugar Curtain Wipe Transition */
+@keyframes curtainWipeVertical {
+  0% { transform: translateY(100%); }
+  45% { transform: translateY(0%); }
+  55% { transform: translateY(0%); }
+  100% { transform: translateY(-100%); }
+}
+
+.animate-curtain {
+  animation: curtainWipeVertical 0.75s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Mild Sugar Solid Orange Marquee Text */
+.text-mildsugar-marquee {
+  color: #fea831;
+  font-family: 'Righteous', cursive, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  opacity: 0.95;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+/* Browser Video Picture-in-Picture & Native Controls Suppression */
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-toggle-closed-captions-button,
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
